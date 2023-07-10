@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+    <script>
+        /*
+        # 자바스크립트의 객체 
+        1. 객체의 유형
+            1) json 형 객체
+                {속성:속성값,....}
+                [{},{},....]
+            2) 함수형 객체(선언, 객체 생성)
+                function Person(name, age, loc){
+                    // 속성
+                    this.name = name
+                    this.age = age
+                    this.loc = loc
+                    // 메서드
+                    this.show=function(){
+                        var prn = "<h2>이름:"+this.name+","
+                        prn += "나이:"+this.age+","
+                        prn += "사는곳:"+this.loc+"</h2>"
+                        document.body.innerHTML += prn;
+                    }
+                }    
+        var p01 = new Person("홍길동",25,"서울")
+        p01.show();
+        var p02 = new Person("김길동",27,"대전")
+        p02.show();
+                
+    */
+        function buy(){
+            // alert("함수 호출")
+            var pnameOb = document.querySelector("[name=pname]")
+            var priceOb = document.querySelector("[name=price]")
+            var cntOb = document.querySelector("[name=cnt]")
+            var p01 = new Product(pname.value,priceOb.value)
+            p01.buy(cntOb.value); p01.show();
+            pnameOb.value=""; priceOb.value=""; cntOb.value="";
+            pnameOb.focus();
+        }
+
+
+    </script>
+</head>
+<body>
+    <h2>함수형 객체</h2>
+    <p align="center">
+        물건명:<input type="text" name="pname"/><br>
+        가격:<input type="text" name="price"/><br>
+        갯수:<input type="text" name="cnt"/><br>
+        <input type="button" value="구매" onclick="buy()"><br>
+    </p>
+    <h2 align="center">구매정보</h2>
+    <table id="show" width="40%" align="center" border>
+        <thead><tr><th>No</th><th>물건명</th><th>가격</th><th>갯수</th></tr></thead>
+        <tbody></tbody>
+    </table>
+</body>
+    <script>
+        // ex) Product 함수형 객체를 선언하고,
+        //      물건명, 가격, 갯수를 생성자로 할당해서
+        //      화면에 출력
+        //      테이블에 출력하게 하세요
+        var tbodyDom = document.querySelector("#show tbody")
+        var no = 1;
+        function Product (name,price) {
+            this.name = name;
+            this.price = price;
+            this.buy = function(cnt) {
+                // 상단에 선언하지 않더라도
+                // this를 사용하면 field가 된다.
+                this.cnt = cnt;
+            }
+            this.show = function(){
+                var prn = "<tr>"
+                prn += "<th>"+no+++"</th>"
+                prn += "<td>"+this.name+"</td>"
+                prn += "<td>"+this.price+"</td>"
+                prn += "<td>"+this.cnt+"</td></tr>"
+                tbodyDom.innerHTML += prn
+            }
+        }
+
+        var pr01 = new Product("사과",3000); pr01.buy(3); pr01.show();
+        var pr01 = new Product("바나나",4000); pr01.buy(5); pr01.show();
+        var pr01 = new Product("딸기",12000); pr01.buy(2); pr01.show();
+
+        // function Product(pname,price,count) {
+        //     this.pname = pname
+        //     this.price = price
+        //     this.count = count
+        //     var idx = 1;
+
+        //     this.showInfo = function() {
+        //         var pr = "<tr><td>"+idx+++"</td><td>"+this.pname+"</td><td>"+this.price+"</td><td>"+this.count+"</td></tr>"
+        //         tbodyDom.innerHTML += pr;
+        //     }
+
+        // }
+
+        // var pr01 = new Product("바나나",5000,3)
+        // pr01.showInfo();
+
+
+
+        function Person(name, age, loc){
+            // 속성
+            this.name = name
+            this.age = age
+            this.loc = loc
+            // 메서드
+            this.show=function(){
+                var prn = "<h2>이름:"+this.name+","
+                prn += "나이:"+this.age+","
+                prn += "사는곳:"+this.loc+"</h2>"
+                document.body.innerHTML += prn;
+            }
+        }    
+        var p01 = new Person("홍길동",25,"서울")
+        p01.show();
+        var p02 = new Person("김길동",27,"대전")
+        p02.show();
+
+
+    </script>
+</html>

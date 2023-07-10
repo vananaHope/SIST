@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+    <script>
+        /*
+        # 매개변수 정리 문제
+        아래 문제들을 h2의 타이틀 내용을 클릭 시 처리되게 하세요
+        1. 매개변수의 개수
+            1) 없는 경우
+                안녕하세요 출력
+                카운트 증가 출력(전역변수 활용)
+            2) 1개인 경우
+                등록한 사원 번호 출력(매개변수-사원번호)
+                클릭 시마다 등록한 가격 총액계산(매개변수-가격, 전역변수-총액)
+            3) 2개인 경우
+                총계계산 (가격, 개수 - 출력)
+            4) 가변적인 경우
+                arguments 활용
+                    학생의 점수 1개~3개를 각각 호출
+
+                ...변수명 활용
+                    등록된 회원 아이디 1개~3개를 각각 호출
+
+        2. 매개변수의 유형
+            1) 배열인 경우
+                국어, 영어, 수학 점수 배열로 전달 / 평균 출력
+            2) 객체인 경우
+                도서명, 도서출판사, 도서 가격 json 객체로 전달
+                전달된 정보 출력
+                let 변수 = {속성:"문자열", 속성:숫자}
+                let 변수 = [{},{},{}]
+            3) DOM인 경우
+            
+        */    
+        function hello() {
+            alert("안녕하세요")
+        }
+
+        var cnt = 0;
+        function count() {
+            alert(cnt++)
+        }
+
+        function member(memno) {
+            alert("사원번호: "+memno)
+        }
+
+        var total = 0;
+
+        function product(price) {
+            total += price;
+            alert("등록한 가격: "+price+" 총액: "+total)
+        }
+
+        
+        function tot(price, cnt) {
+            let tot = price*cnt
+            alert("가격: "+price+" 개수: "+cnt+" 총계: "+tot)
+        }
+
+        
+        function stuScore() {
+            var score = []
+            for(var idx in arguments) {
+                score.push(arguments[idx])
+            }
+            alert("입력 받은 데이터: "+score)
+        }
+
+        function memId(...id) {
+            alert("회원 아이디: "+id)
+        }
+        function call08(points) {
+            let tot = 0;
+            points.forEach(function(pt) {
+               tot += pt;     
+            });
+            alert("총점: "+tot+", 평균: "+(tot/points.length))
+            // 에러 시 변경된 소스 공백을 넣어서 저장 (ctrl + s)
+            // 화면 에러 f5로 몇 번 리플래시 처리
+
+        }
+        
+        function call09(obj) {
+            var show = ""
+            for(var pro in obj) {
+                show += pro+":"+obj[pro]+"\n"
+            }
+            alert(show)
+        }
+
+        function call10(obj){
+            obj.align = "center"
+            obj.style.backgroundColor="pink"
+            obj.innerText = "DOM객체 변신!!"
+            var h3Ob = document.querySelector("h3")
+            h3Ob.align = "center"
+            h3Ob.style.color = "navy"
+        }
+        // 조별로 현재 여기까지 이해 정도 개인별 %
+        // 가장 이해가 안되는 부분이나 실습부분 @@@
+    </script>
+</head>
+<body>
+    <h2 onclick="call10(this)">DOM객체 속성변경</h2>
+    <h3>대상 객체(DOM)</h3>
+
+    <h2 onclick="call09({title:'자바기초',publisher:'아이디서적',price:28000})">도서명, 도서출판사, 도서가격</h2>    
+    <h2 onclick="call09({name:'홍길동',age:25,loc:'서울'})">이름, 나이, 사는 곳</h2>    
+
+    <h2 onclick="call08([70])">점수1</h2>
+    <h2 onclick="call08([70,80])">점수2</h2>
+    <h2 onclick="call08([70,80,90])">점수3</h2>
+
+    <h2 onclick="hello()">타이틀</h2>
+    <h2 onclick="count()">카운트</h2>
+    <h2 onclick="member(7000)">홍길동</h2>
+    <h2 onclick="member(7010)">김길동</h2>
+
+    <h2 onclick="product(40000)">로지텍 키보드</h2>
+    <h2 onclick="product(30000)">로지텍 마우스</h2>
+
+    <h2 onclick="tot(5000,3)">바나나</h2>
+    <h2 onclick="tot(2000,5)">딸기</h2>
+
+    <h2 onclick="stuScore(90)">학생 1명</h2>
+    <h2 onclick="stuScore(90,80)">학생 2명</h2>
+    <h2 onclick="stuScore(90,80,65)">학생 3명</h2>
+
+    <h2 onclick="memId('himan')">회원 아이디 1개</h2>
+    <h2 onclick="memId('himan','hiwoman')">회원 아이디 2개</h2>
+    <h2 onclick="memId('himan','higirl','hiwoman')">회원 아이디 3개</h2>
+
+</body>
+    <script>
+        /*
+        #  
+        */
+        
+    </script>
+</html>

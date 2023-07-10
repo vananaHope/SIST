@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+    <script>
+        /*
+        # ex) h2 클릭시 
+        table 1X5테이블이 있고 
+        cell 배경색상이 1~5번까지 
+        왔다갔다 하는 처리.
+        */
+        var int01;
+        var tdArr;
+        function end(){
+            tdArr.forEach(function(ob){
+                ob.style.background = "white"
+            })
+            alert("중단!!")
+            clearInterval(int01)
+        }        
+        function start() {
+            var idx = 0;
+            tdArr = document.querySelectorAll("td");
+            var isForward = true;
+            tdArr[idx].style.background = "orange";
+
+            int01 = setInterval(()=>{
+                tdArr.forEach(function(ob){
+                    ob.style.background = "white"
+                })
+                if(idx==0) {
+                    isForward = true;
+                }
+                if(idx==4) {
+                    isForward = false;
+                }
+                if(isForward) {
+                    idx++;
+                }else {
+                    idx--;
+                }
+                
+                // 왔다갔다 할려면 증감연산자를 
+                // index 4,
+                // index 0 일 때 변환해줘야 한다.
+                // index로 판별하면 증감처리 기준을 
+                // 변경하지 못하기에 변수를 정해 주어야 한다.
+                // go(증가 조건 - true, 감소 조건 - false)
+
+                tdArr[idx].style.background = "orange";
+                
+                // if(idx==4) {
+                //     clearInterval(int01)
+                // }
+
+            },500)
+            
+        }
+        
+    </script>
+</head>
+<body>
+    <h2 onclick="start()">시작</h2>
+    <h2 onclick="end()">종료</h2>
+    <table width="300" height="300" border>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+</body>
+    <script>
+        /*
+        #  
+        */
+        
+    </script>
+</html>

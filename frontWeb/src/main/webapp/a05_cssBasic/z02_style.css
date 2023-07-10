@@ -1,0 +1,15 @@
+@charset "UTF-8";
+body {
+	margin-left:30px; margin-right:30px;
+}
+
+h1 {
+	text-align:center;
+	color:#D3D3D3;
+}
+p {
+	text-align:center;
+	background-color:grey;
+	font-size:18px;
+	padding: 10px 10px;
+}

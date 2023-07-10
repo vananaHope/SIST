@@ -1,0 +1,197 @@
+/* 공통 css */
+
+#payment {
+    display: flex;
+    justify-content: center;
+    
+}
+body{
+    background-color: #e5e7eb;
+    margin: 0;
+}
+#shop-title {
+    text-align: center;
+}
+#order-wrap { /*왼쪽 주문 섹션 적용 */
+    width: 80%;
+    display: inline-block;
+}
+#fix-wrap { /*고정 주문 섹션 적용 */
+    position: fixed;
+    top: 73px;
+    left: 63%;
+    width: 300px;
+    height: 200px;
+}
+.section { /*공통 섹션 적용 */
+    border: 0;
+    margin-bottom: 15px;
+    background-color: #fff;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-bottom: 22px;
+    padding-top: 1px;
+}
+/*주문 상품 정보*/
+.inner-content-order { /*주문 상품 정보 섹션 크기 스타일 적용 */
+    border: 1px solid #4f4f4f;
+    background-color: #fff;
+    padding: 10px;
+    height: 100px;
+}
+#product-info{ /*상품 정보 위치 지정*/
+    position: relative;
+    width: 450px;
+    bottom: 40px;
+}
+#product-option {/*상품 옵션 위치 지정*/
+    position: relative;
+    left: 85px;
+    bottom: 50px;
+}
+#product-pay {/*상품 가격 위치 지정*/
+    position: relative;
+    left: 55px;
+    bottom: 25px;
+}
+img {
+    width: 80px;
+    height: 80px;
+}
+#product-image, #product-info, #product-option, #product-pay {
+    display: inline-block;
+}
+/* 주문자 정보 */
+#name {
+    margin-top: 10px;
+}
+#alert-orderInfo { /*주문자 정보 디지털 약관 동의 섹션 스타일*/
+    border: 0;
+    background-color: #e5e4e4;
+    padding: 10px;
+    color: #757575;
+}
+#name, #contact, #email {/*주문자 정보 스타일*/
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-size: 15px;
+    color: #757575;
+}
+#change { /*수정 버튼*/
+    position: relative;
+    left: 505px;
+    top: -90px;
+    width: 50px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: rgb(64,64,64);   
+    color: white;
+}
+#change:hover { /*수정버튼 hover 적용*/
+    background-color: #757575;
+    color: white;
+    transition: all .3s; 
+}
+/*배송지 정보*/
+#address-search { /*주소 검색 버튼*/
+    position: relative;
+    width: 65px;
+    height: 22px;
+    text-align: center;
+    padding: 0;
+    right: 3px;
+    top: 1.5px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: rgb(64,64,64);   
+    color: white;
+    
+}
+#address-search:hover{/*주소 검색 버튼 hover*/
+    background-color: #757575;
+    color: white;
+    transition: all .3s; 
+}
+.margin-address {/*input 간격 조정*/
+    margin-bottom: 10px;
+}
+.inner-content-orderInfo{
+    height: 180px;
+}
+#deliv-info-check {
+    margin-bottom: 10px;
+}
+/*쿠폰, 포인트 정보*/
+.coupon-point-text{
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.cou-point-btn { /*쿠폰,포인트 버튼*/
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: rgb(64,64,64);   
+    color: white;
+    width: 16%; height: 22px;
+    transition: all .3s;
+}
+.cou-point-btn:hover {
+    background-color: #757575;
+    color: white;
+}
+.cou-point-input {/*input 크기 조정*/
+    width: 80%
+}
+.cou-point-margin {/*input 간격 조정*/
+    margin-bottom: 10px;
+}
+/* position: fix 주문 정보 */
+.inner-content-orderFix { /*고정 섹션 공통*/
+    padding: 5px;
+    color: #757575;
+}
+.price { /*위치 지정*/
+    position: relative;
+    left: 100px;
+}
+.priceFree { /*위치 지정*/
+    position: relative;
+    left: 165px;
+}   
+.priceTotal { /*위치 지정*/
+    position: relative;
+    left: 80px;
+    
+}
+.orderFix { /*위치 간격 지정*/
+    margin-bottom: 10px;
+}
+#pay-btn { /*결제하기 버튼*/
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: rgb(64,64,64);   
+    color: white;
+    width: 300px;
+    height: 50px;
+    margin-bottom: 300px;  
+            
+}
+#pay-btn:hover{ /*결제하기 버튼 hover*/
+    background-color: #757575;
+    color: white;
+    transition: all .3s; 
+}
+
+
+
+
+
+
+

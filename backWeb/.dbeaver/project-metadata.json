@@ -1,0 +1,1 @@
+{"resources":{"database/a25_hirarSql.sql":{"default-schema":"SCOTT","default-datasource":"oracle_thin-187e57af95b-74ffc67a307ea27"},"database/a27.sql":{"default-datasource":"oracle_thin-187e57af95b-74ffc67a307ea27","default-schema":"SCOTT"}}}

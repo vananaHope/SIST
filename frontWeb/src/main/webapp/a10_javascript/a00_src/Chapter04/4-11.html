@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var array = ['포도', '사과', '바나나', '망고'];
+        // for 반복문
+        for (var i = 0; i < array.length; i++) {
+            //alert(array[i]);
+        }
+    </script>
+</head>
+<body>
+    <script>
+        // document.body.innerHTML
+        // 회원의 아이디를 배열로 리스트한 후,
+        // 반복문으로 출력해보세요
+
+        var memId = ['himan','hiwoman','zelda','link']
+        var member =""
+        for(let idx=0; idx<memId.length; idx++) {
+            member += `<h2>${memId[idx]}</h2>`
+        }
+        document.body.innerHTML = `<h1>회원아이디: </h1>
+                                        ${member}`
+    </script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    
+    , initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        table{
+            border-collapse:collapse;
+            border: 1px solid green
+        }
+        th, td{
+            border: 1px solid green;
+
+        }
+        */
+        /* 화면에 있는 모든 border를 붕괴시킴
+            border: 굵기 형태 색상;
+        
+        
+        */
+    </style>
+</head>
+<body>
+    <!--
+        # 표만들기 table
+        1.  웹 화면에 2차원(행/열)이 있는 데이터를 업무 프로그램에서는 많이 활용된다. 또한 이미지 게시물형태로 데이터를
+            리스트해서 행/열로 나타내는 경우도 많다. 이와 같이 데이터를 효과적으로 행/열 형식으로 리스트하는 화면이 많은데
+            이을 가장 잘 처리해주는 태그가 테이블이라고 할 수 있다.
+        2. 기본 테이블 구성요소
+            1) 테이블은 table이라는 태그 하위에 thead(table header)
+                tbody(table body), tfoot(table footer)로 바로 밑 구성요소와 함께 (범위를 지정하는 부분은 생략이 가능하다)
+            2) tr(table row)로 테이블의 행단위를 처리하고 그 하위에 th(table head) 테이블의 타이틀을 처리하는 항목과
+                td(table data) 테이블의 열단위 데이터를 처리하는 항목으로 구성된다.
+        3. 기본구성 형식        
+            1) 내용요소인 thead, tbody, tfoot가 포함되어 있는 경우
+                <table>
+                    <caption>테이블 타이틀</caption>
+                    <col width="넓이단위">
+                    각 컬럼의 넓이를 지정 처리
+                    5개의 열이 있을 때, 열마다 넓이를 지정하지 않으면 각 열의 데이터 크기에 따라
+                    일관성 없이 지정되는 경우가 있기 때문에 상단에 col width를 통해 %단위로 지정한다.
+                    <col width="20%"><col width="30%">
+                    <col width="25%"><col width="25%"><col width="25%">
+                    
+                    no  이름  국어  영어  수학  평균
+                    
+                    <thead>
+                        <tr>
+                            <th>번호</th><th>이름</th>
+                        </tr>    
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td><td>홍길동</td>
+                        </tr>    
+                        <tr>
+                            <td>2</td><td>김길동</td>
+                        </tr>    
+                        <tr>
+                            <td>3</td><td>신길동</td>
+                        </tr>    
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>전체인원</th><td>3명</td>
+                        </tr>
+
+                    </tfoot>            
+                </table>    
+            
+            2) 내용요소를 생략한 경우
+            	<table width="80%" align="center">
+            		전체화면대비 중앙정렬, 전체화면대비 테이블의 비율
+            		<col width="30%"><col width="70%>
+            		<tr><th>번호</th><th>이름</th></tr>
+            		<tr><td>1</td><td>홍길동</td></tr>
+            		<tr><td>2</td><td>김길동</td></tr>
+            		<tr><td>3</td><td>신길동</td></tr>
+            	</table>
+            	ps)
+            	정렬 관련 내용 : 태그마다 기본적으로 정렬을 지원 태그가
+            	있고 그렇지 않은 태그가 있다.
+            	h1~h6, p 내부에 있는 데이터의 정렬을 지정 align
+            	table 외부화면 전체에서 이 테이블의 위치 정렬 align
+            	그 외에 기본 태그로 정렬이 지원하지 않는 것을 css로 설정한다.
+            		태그명{text-align:정렬;}
+            		css 각 셀(td) 안에 문자열의 중앙정렬 처리시
+            		td{text-align:center;}
+                
+        4. 테이블의 속성
+        	0) <table 속성="속성값">
+            1) 테이블의 테두리의 두께와 넓이, 폭 등 여러가지 속성을 
+                지정할 수 있다. 태그 자체 기본 속성
+            2) 주요 숙성 내용
+                - border: 테이블을 둘러싼 테두리의 border의 굵기를 설정한다.
+                          설정하지 않으면 cell 자체가 나타나지 않는다.
+                          기본적으로 둘러싼 테두리의 굵기를 지정하고,
+                          cell단 border를 출력 되게 한다.
+                          주의) cell단 border의 굵기는 지정하지 않는다
+                          table border="5"
+                - cellspacing: 내부 보더의 굵기
+                	td(cell)간의 굵기를 지정한다.                          
+                - width/height: 테이블의 넓이와 높이를 처리한다.
+                        설정단위 - 절대단위: pt, px
+                                상대단위: % - 전체브라우저 대비 테이블 크기
+                        width = "80%" 전체 화면에서 table의 넓이를 설정
+                        height : 상대단위보다는 절대 단위로 설정하는 것이 좋다.
+                        	상대단위 %는 크기가 일정하지 않아서 적용이 되지 않는다.
+                                   
+                - align: 전체 화면에서 table의 좌우정렬 설정
+                - cellpadding: 보더와 글자사이 간격
+                	td(cell)안에 글자와 둘러싸고 있는 border의 간격을 지정할 때 사용하는 옵션
+
+                # 기타 css 설정기능
+                테이블은 일반적으로 border가 2d로 2중 모양이다.
+                이러한 border를 1라인으로 처리하려면 css 속성으로
+                border-collapase옵션 처리를 해야 한다.
+                    - separate: default
+                    - collapse: border을 한 라인으로 처리하는 옵션
+
+    --> 
+    <!-- ex) 3x3테이블로 위에 기본 속성을 적용해서 테이블을 만들어 보세요 -->
+    <h3>3x3 테이블의 속성</h3>
+    <!-- 
+    	# css 적용
+    	1. css는 head부분에 style로 설정하면 전체화면에 적용
+    	2. 태그명 style="css속성:속성값" 해당 태그에서만 적용
+    	3. 중간에 <style> 코드 삽입해서 지정하면 해당 라인 이후에만 적용.
+    	4. css 적용의 우선순위는 해당 태그(태그 안에서 style 속성으로 선언한 css)가 최우선 순위이고, 
+    	   그 다음 하단의 body에서 선언한 태그
+    	   그 다음 상단에 선언한 css, 마지막으로 파일 단위로 선언한 태그이다.
+    	   
+    	   css의 border 옵션 : border의 굵기에 관련된 옵션을 설정
+    	   굵기 모양 색상 
+    	   	
+     -->
+    <table border="5" width="30%" height="40%" align="center" cellpadding="3px" cellspacing="7px"
+    style="border-collapse:collapse; border: 1px solid green;">
+    
+        <tr><td>홍길동</td><td>27</td><td>서울</td></tr>
+        <tr><td>김길동</td><td>26</td><td>경기</td></tr>
+        <tr><td>신길동</td><td>19</td><td>전북</td></tr>
+    </table>
+	<style>
+		/* 이 라인 이후로 css 적용 */
+	</style>
+
+    <h2>테이블의 계층별 구성요소</h2>
+    <!--width="200pt"-->
+    <table cellspacing="10pt" cellpadding="25pt" border="5" align="center" width="20%">
+        <thead>
+            <tr>
+                <th>번호</th><th>이름</th>
+            </tr>    
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center">1</td><td>홍길동</td>
+            </tr>    
+            <tr>
+                <td align="center">2</td><td>김길동</td>
+            </tr>    
+            <tr>
+                <td align="center">3</td><td>신길동</td>
+            </tr>    
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>전체인원</th><td>3명</td>
+            </tr>
+            
+        </tfoot>            
+    </table>
+    <!--
+        ex) 
+        아래 내용의 테이블을 생성하세요
+        타이틀로 이름 html(과목명) css(과목명)
+        데이터로      @@@    80         90
+        데이터로      @@@    80         90
+        데이터로      @@@    80         90
+        데이터로      계     240        360
+        데이터로     평균    80         90
+        3명의 이름과 점수를 입력되게 하고 마지막 하단에 합이란 내용으로 총계가 출력되게 하세요. 
+    -->
+    <hr>
+    <h3>기본 구조를 가진 표</h3>
+    <table border="1">
+        <caption>1학기 성적</caption>
+
+        <thead>
+            <tr>
+                <th>이름</th><th>HTML</th><th>CSS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>홍길동</td><td>80</td><td>90</td>
+            </tr>
+            <tr>
+                <td>김길동</td><td>80</td><td>90</td>
+            </tr>
+            <tr>
+                <td>신길동</td><td>80</td><td>90</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>계</th><td>240</td><td>360</td>
+            </tr>
+            <tr>
+                <th>평균</th><td>80</td><td>90</td>
+            </tr>
+        </tfoot>
+
+    </table>
+    <h2>생략되어 바로 테이블을 처리한 내용</h2>
+    <h3>2X2테이블</h3>
+    <table>
+        <tr><td>1행1열</td><td>1행2열</td></tr>
+        <tr><td>2행1열</td><td>2행2열</td></tr>
+    </table>
+    <h3>3X2테이블</h3>
+    <table border="3">
+        <tr><td>1행1열</td><td>1행2열</td></tr>
+        <tr><td>2행1열</td><td>2행2열</td></tr>
+        <tr><td>3행1열</td><td>3행2열</td></tr>
+    </table>
+    <!--
+        ex) 1X3 과목명 리스트
+            4X4 X/O 표시
+            2X5 회원정보
+            를 표시하는 테이블을 만드세요 
+
+    -->
+    <h3>과목명 리스트</h3>
+    <table border="1">
+        <tr><td>HTML</td><td>CSS</td><td>JS</td></tr>
+    </table>
+    <h3>X/O 표시</h3>
+    <table border="1">
+        <tr><td>X</td><td>X</td><td>O</td><td>O</td></tr>
+        <tr><td>X</td><td>X</td><td>O</td><td>O</td></tr>
+        <tr><td>X</td><td>X</td><td>O</td><td>O</td></tr>
+        <tr><td>X</td><td>X</td><td>O</td><td>O</td></tr>
+    </table>
+    <h3>회원정보</h3>
+    <table border="1">
+        <tr><th>회원명</th><th>나이</th><th>지역</th><th>취미</th><th>운동</th></tr>
+        <tr><td>홍길동</td><td>25</td><td>서울</td><td>영화감상</td><td>축구</td></tr>
+        <tr><td>신길동</td><td>27</td><td>인천</td><td>독서</td><td>농구</td></tr>
+        
+    </table>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         table{
+            border-collapse:collapse;
+            border: 1px solid green
+        }
+        th, td{
+            border: 1px solid green;
+
+        }
+    </style>
+
+</head>
+<!--
+    # span
+    1. cell 테이블의 구성요소인 td를 보통 cell이라고 하는데, 
+       이 td의 속성을 지정하여 td를 병합처리할 때 사용하는 옵션이다.
+    2. 형식
+        1) colspan="병합할 cell의 갯수"
+            열단위로 병합할 cell을 선언하여 병합하는 것을 말한다.
+        2) rowspan="숫자"
+            행단위로 병합할 cell을 선언하는 것 
+    3. 주의 : cell단위로 병합하면 원래 선언 cell(td)는 행단위 열단위로 삭제하여야 한다.
+    4. 효과적인 셀병합처리를 위한 테이블 구조 처리 순서
+    	1) 초기 셀병합되기전에 @@x@@ 테이블을 만든다.
+    	2) 병합되는 최종 셀(td)에서 rowspan, colspan 속성을 선언하고 병합하는 수를 입력한다.
+    	   최초 셀: 위에서부터 아래로, 왼쪽에서 오른쪽으로 카운팅하면서 최초 셀을 선택
+    	3) 행열 단위로 cell 병합하는 경우, 그 행열의 가장 처음 셀(td)에 rowspan, colspan을 설정하고
+    		관련된 그 외 cell(td), 즉 행열 단위 td는 모두 삭제된다.
+    		2x2 ==> 1 속성설정이외 2개 모두 삭제
+    		3x4 ==> 속성 설정 이외 11개 모두 삭제..
+    		            
+-->
+<body>
+    <h2>span연습1</h2>
+    <table align="center" width="300pt" height="300pt">
+        <tr><td colspan="2"></td><td rowspan="3"></td></tr>
+        <tr><td rowspan="2"></td><td></td></tr>
+        <tr><td></td></tr>
+    </table>
+    <h2>span연습(3x3)</h2>
+    <table width="300pt" height="300pt" align="center">
+        <tr><td rowspan="3"></td><td></td><td></td></tr>
+        <tr><td></td><td></td></tr>
+        <tr><td colspan="2"></td></tr>
+    </table>
+    <style>
+        td{height: 33%;}
+    </style>
+    <h2>span연습(3x3)</h2>
+    <table width="300pt" height="300pt">
+        <tr><td></td><td rowspan="3"></td><td rowspan="2"></td></tr>
+        <tr><td rowspan="2"></td></tr>
+        <tr><td></td></tr>
+    </table>
+    <style>
+        td{height: 25%;}
+    </style>
+    <h2>span연습(4x4)</h2>
+    <table width="300pt" height="300pt">
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td rowspan="2" colspan="2"></td><td></td></tr>
+        <tr><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+    </table>
+</body>
+</html>

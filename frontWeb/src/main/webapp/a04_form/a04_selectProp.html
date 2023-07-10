@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	</head>
+	<body>
+		<!-- 
+		# select 선택형 입력의 세부 속성
+		1. 형식
+			select 속성=속성값
+			option value : 항목의 값을 지정
+					selected : 맨처음에 선택되어진 항목
+		2. 속성
+			1) name : 해당 name 값을 기준으로 선택된 항목(option)을 key=value
+				형식으로 서버에 전송한다.
+			2) size : 한 번에 보일 선택 항목(option)의 갯수를 지정할 수 있다.
+			3) multiple : ctrl 누른 상태에서 마우스 클릭으로 여러 개를 선택할 때 사용된다.
+				이렇게 여러 개 선택하면, 서버에도 배열 데이터로 전송된다.
+				ex) name, option의 선택 value값과 연동 해서 다중으로 서버에 전송한다.
+				<select name="sel101" multiple>
+					<option>사과</option>
+					<option>바나나</option>
+					<option>딸기</option>
+					<option>오렌지</option>
+				</select>
+				sel01=사과&sel01=바나나&sel01=오렌지
+				동일한 이름으로 여러개를 전송할 수 있다 ==> 서버에서는 배열로 전달받는다.
+		 -->
+		 <form>
+		 	사원1(multiple):<select name="empno" multiple>
+		 		<option value="1000">홍길동</option>
+		 		<option value="2000">신길동</option>
+		 		<option value="3000">김길동</option>
+		 		<option value="4000">마길동</option>
+		 		<option value="5000">하길동</option>
+		 		<option value="7000">오길동</option>
+		 	
+		 	</select><br>
+		 	사원2(size=2):<select name="empno" size="2">
+		 		<option value="1000">홍길동</option>
+		 		<option value="2000">신길동</option>
+		 		<option value="3000">김길동</option>
+		 		<option value="4000">마길동</option>
+		 		<option value="5000">하길동</option>
+		 		<option value="7000">오길동</option>
+		 	
+		 	</select><br>
+		 	사원3(selected):<select name="empno">
+		 		<option value="1000">홍길동</option>
+		 		<option value="2000">신길동</option>
+		 		<option value="3000" selected>김길동</option>
+		 		<option value="4000">마길동</option>
+		 		<option value="5000">하길동</option>
+		 		<option value="7000">오길동</option>
+		 	
+		 	</select><br>
+		 	<input type="submit">
+		 	<!-- 초기 로딩화면에서 default로 선택 option이 김길동으로 처리할 때, 활용된다. -->
+		 </form>
+		 <!-- 
+		 empno1=2000&empno2=1000&empno2=3000&empno2=40 
+		 : multiple일 때 ctrl를 통해 선택한 항목들을 전송한다.
+		
+		ex) 성별(단일선택-두번째 항목 선택), 좋아하는 음식(다중선택), 
+		    부서정보(3개 보이게 처리 - 인사, 재무, 회계, 기획, it사업부)로 combo를 처리하세요
+		     
+		  -->
+		<form>
+			성별:
+			<select name="gender">
+				<option value="1000">남성</option>
+				<option value="2000" selected>여성</option>
+			</select><br>
+			
+			좋아하는 음식:
+			<select name="food" multiple>
+				<option value="1000">한우</option>	
+				<option value="1001">초밥</option>	
+				<option value="1002">삽겹살</option>	
+				<option value="1003">치킨</option>	
+				<option value="1004">불고기</option>	
+				<option value="1005">제육볶음</option>	
+			</select><br>
+			
+			부서정보:
+			<select name="deptInfo" size="3">
+				<option value="100">인사</option>
+				<option value="200">재무</option>
+				<option value="300">회계</option>
+				<option value="400">기획</option>
+				<option value="500">it사업부</option>
+			</select><br>
+			<input type="submit">
+			
+			
+		
+		</form>
+	</body>
+</html>

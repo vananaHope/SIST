@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="product_style.css">
+</head>
+<body>
+    <div id="seller-content">
+        <div id="productTitle">
+            <h2>상품 등록</h2>
+        </div>
+        <div id="seller-sub-content">
+            <form id="Grab_Product">
+                <div id="category" style="height: 100px;">
+                    <div class="title">
+                        카테고리
+                    </div>
+                    <div class="inner-content">  
+                        <select name="category-choice" style="width: 10%;">
+                            <option value="score">악보</option>
+                            <option value="guitar">기타</option>
+                            <option value="accessory">액세사리</option>
+                        </select>
+                        <input type="text" name="category-input" placeholder="카테고리명을 입력" style="width: 70%;">
+                        <input type="submit" name="search" value="검색하기">
+                    </div>
+                </div>
+                <div id="product" style="height: 100px;">
+                    <div class="title">
+                        상품 등록
+                    </div>
+                    <div class="inner-content"> <!--상품명 입력-->
+                        <div>
+                            <input type="text" name="product-input" placeholder="상품명 입력" style="width: 97%;" maxlength="100">
+                        </div>
+                    </div>
+                </div>
+                <div id="sale-price" style="height: 260px;">
+                    <div class="title">
+                        판매가
+                    </div>
+                    <div class="inner-content">
+                        <div id="sale-price-input" style="font-size: 15px;">
+                            판매가 <input type="text" name="sale-price-input" placeholder="판매가 입력" style="width: 87%; margin-left: 15px;">
+                        </div>
+                        <div id="sale-price-button" style="font-size: 15px; margin-top: 15px;">
+                            할인
+                            <div class="form15">
+                                <input type="radio" name="sale" value="전체 할인">전체 할인
+                                <input type="radio" name="sale" value="기간 할인">기간 할인
+                                
+                            </div>
+                            <div>
+                                <input type="date" name="sale" value="할인 기간 시작" style="position: relative; left: 100px;">
+                                <span style="position: relative; left: 115px; font-size: 20px;">~</span>
+                                <input type="date" name="sale" value="할인 기간 끝" style="position: relative; left: 130px;">
+                            </div>
+                        </div>
+                        <div id="tax" style="font-size: 15px; margin-top: 15px;">
+                            부가세
+                            <div class="form15">
+                                <input type="radio" name="tax" value="과세상품">과세 상품
+                                <input type="radio" name="tax" value="영세상품">영세 상품
+                                <input type="radio" name="tax" value="면세상품">면세 상품
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="stock" style="height: 100px;">
+                    <div class="title">
+                        재고수량
+                    </div>
+                    <div class="inner-content">
+                        <input type="text" name="stock-input" placeholder="재고 입력" style="width: 97%;">
+                    </div>
+                </div>
+                <div id="product-image" style="height: 220px;">
+                    <div class="title">
+                        상품 이미지
+                    </div>
+                    <div class="inner-content">
+                        <div id="image-input">
+                            대표 이미지
+                        </div>
+                        <img src="기타 썸네일.jpg">
+                        <input type="button" name="attach" value="첨부하기">
+                    </div>
+                </div>
+                <input type="submit" name="cancel" id="form-btn" value="취소">
+                <input type="submit" name="enroll" id="form-btn" value="등록하기">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

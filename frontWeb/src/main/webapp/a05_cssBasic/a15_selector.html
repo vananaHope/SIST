@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cls01 .cls02{background-color: pink;}
+        .cls03 > .cls02{color: blue; text-align: center;}
+
+    </style>
+</head>
+<body>
+    <h2 align="center">계층 관계</h2>
+    <table align="center" class="cls01" border="1" width="200" height="200">
+        <tr><td class="cls02">1</td></tr>
+        <tr><td>2</td></tr>
+        <tr class="cls03"><td class="cls02">3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td class="cls02">5</td></tr>
+    </table>
+</body>
+</html>

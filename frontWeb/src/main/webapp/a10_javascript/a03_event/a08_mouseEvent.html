@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		   /*
+		   css 주석문
+		   */
+		</style>
+		<script>
+			/*
+			# 마우스 이벤트 
+			1. 마우스 커서 위치에 따른 이벤트 처리할 때, 주로 사용된다.
+			2. 종류
+				mouseover : 해당 DOM객체 위치에 마우스 커서가 있을 때
+				mouseout : 해당 DOM객체 위치에 마우스 커서가 있다가
+					벗어났을 때
+				click : 클릭 시 
+				dblclick : 두 번 클릭 시
+			3. 기본 형식
+				<태그 on이벤트 = "이벤트핸들러함수()">
+				dom객체.on이벤트 = 함수;
+			
+			*/
+			
+			
+		</script>	
+	</head>
+	<body>
+		<div id="div01" style="width:200px; height:200px; border: 1px solid green""></div>
+		
+		<!-- 
+		1. 화면 구성
+		2. DOM객체 메모리 로딩
+		3. 대상 DOM객체 이벤트 선언(이벤트 핸들러 함수 할당)
+		4. 이벤트에 의해 처리될 내용 코드 구현
+		 -->
+		<h2>물건 등록 연습</h2>
+		물건 등록:<input type="text" name="prAdd">
+		<h3>등록된 물건 리스트</h3>
+		<ol id="pList"></ol>
+	</body>
+	<script>
+		// 물건 등록 : [   ] - 마우스오버 / 아웃에 따라 배경 색상 
+		//					입력 후, 더블클릭시 , 하단에 등록 리스트 추가
+		// 등록 리스트
+		// @@@
+		
+		var prAddOb = document.querySelector("[name=prAdd]")
+		var pListOb = document.querySelector("#pList")
+		
+		prAddOb.onmouseover = function(){
+			this.style.background = "darkred"
+		}
+		prAddOb.onmouseout = function(){
+			this.style.background = "white"
+		}	
+		prAddOb.ondblclick = function(){
+			var pname = this.value
+			pListOb.innerHTML += "<li>"+pname+"</li>"
+			this.value=""
+			this.focus()
+		}
+	
+	
+		var div01Ob = document.querySelector("#div01")
+		div01Ob.onmouseover = function() {
+			this.style.background = "yellow"
+			this.style.textAlign = "center"
+			this.innerText = "마우스오버 이벤트"
+		}
+		div01Ob.onmouseout = function() {
+			this.style.background = "pink"
+			this.innerText = "마우스아웃 이벤트"
+		}
+		div01Ob.ondblclick = function() {
+			this.style.background = "#CEE3F6"
+			this.innerText = "더블 클릭 이벤트"
+		}
+		
+		
+	</script>
+</html>

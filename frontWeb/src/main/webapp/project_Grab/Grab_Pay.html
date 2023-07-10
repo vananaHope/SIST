@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="pay_style.css">
+</head>
+<body>
+    <div id="payment">
+        <form id="order-payment">
+            <div id="shop-title">
+                <h2>결제하기</h2>
+            </div>
+            <div id="order-wrap">
+                <div class="section">
+                    <h3>주문 상품 정보</h3>
+                    <div class="inner-content-order"> <!--주문 상품 정보-->
+                        <div id="product-image">
+                            <img src="기타 썸네일.jpg" alt="주문 상품 이미지">
+                        </div>
+                        <div id="product-info">
+                            <span>헥스 BETA F70 입문용 OM바디 통기타 / 초보자용 기타 세트 악세서리 풀패키지 선물</span>
+                        </div>
+                        <div id="product-option">
+                            <p>1개</p>
+                        </div>
+                        <div id="product-pay">
+                            <span>159000원</span>
+                        </div>
+                    </div>             
+                </div>
+                <div class="section">
+                    <h3>주문자 정보</h3>
+                    <div class="inner-content-orderInfo"> <!--주문자 정보-->
+                        <div id="alert-orderInfo">
+                            디지털 악보 구매시 카카오페이 또는 카드 결제를 이용하시면 바로 악보를 다운 받을 수 있습니다.
+                            <br>
+                            무통장 입금의 경우 결제완료까지 다소 시간이 소요됩니다.(최대 1시간)
+                            <br>
+                        </div>
+                        <div id="orderer-preview">
+                            <div id="name">
+                                홍길동
+                            </div>
+                            <div id="contact">
+                                010-1234-3456
+                            </div>
+                            <div id="email">
+                                hong123@naver.com
+                            </div>
+                            <input type="button" id="change" value="수정">
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3>배송 정보</h3>
+                    <div class="inner-content-address"> 
+                        <div id="deliv-info-check"> <!--주문자와 동일한 주소 입력해주는 checkbox-->
+                            <input type="checkbox">
+                            <span style="font-size: 15px;">주문자와 동일</span>
+                        </div>
+                        <div id="deliv-wrap" class="margin-address"> <!--배송자 정보-->
+                            <input type="text" placeholder="수령인" style="width: 45%;">
+                            <input type="text" placeholder="연락처" style="width: 50%;">
+                        </div>
+                        <div id="address-wrap"> <!--배송 주소 입력-->
+                            <input type="text" placeholder="우편번호" class="margin-address" style="width: 33%;">
+                            <input type="button" id="address-search" class="margin-address" value="주소찾기">
+                            <input type="text" class="margin-address" placeholder="주소" style="width:97%">
+                            <input type="text" class="margin-address" placeholder="상세주소" style="width:97%">
+                        </div>
+                    </div>
+                </div>
+                <div class="section"> 
+                    <h3>쿠폰/포인트</h3>
+                    <div class="inner-content-coupon"> <!--쿠폰/포인트 정보-->
+                        <div id="coupon">
+                            <div class="coupon-point-text">
+                                쿠폰
+                            </div>
+                            <div class="cou-point-margin"> <!--쿠폰 정보-->
+                                <input name="user-coupon" placeholder="보유쿠폰 0장" class="cou-point-input" readonly>
+                                <input type="button" value="쿠폰적용" class="cou-point-btn" >
+                            </div>
+                        </div>
+                        <div id="point"> <!--포인트 정보 -->
+                            <div class="coupon-point-text">
+                                포인트
+                            </div>
+                            <div class="cou-point-margin">
+                                <input name="user-point" placeholder="0" class="cou-point-input" readonly>
+                                <input type="button" value="포인트적용" class="cou-point-btn">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="fix-wrap">
+                <div class="section">
+                    <h3>주문 요약</h3>
+                    <div class="inner-content-orderFix"> <!--주문 요약-->
+                        <div class="orderFix">
+                            <span>상품 가격</span>
+                            <span class="price">159,000원</span>
+                        </div>
+                        <div class="orderFix">
+                            <span>배송비</span>
+                            <span class="priceFree">무료</span>
+                        </div>
+                        <div style="margin-top: 20px; border-top: 1px solid #757575; padding-top: 15px;">
+                            <span>총 주문 금액</span>
+                            <span class="priceTotal">159,000원</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3>결제 수단</h3> <!--결제 수단-->
+                    <div class="inner-content-payment">
+                        <div>
+                            <input type="radio" name="pay-type">
+                            <span style="margin-right: 26px; font-size: 15px;">신용카드</span>
+                            <input type="radio" name="pay-type">
+                            <span style="font-size: 15px;">실시간 계좌이체</span>
+                            <input type="radio" name="pay-type">
+                            <span style="margin-right: 6px; font-size: 15px;">무통장 입금</span>
+                            <input type="radio" name="pay-type">
+                            <span style="font-size: 15px;">카카오페이</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="section"> <!--구매 동의-->
+                    <div class="inner-content-allow" style="padding-top: 15px;">
+                        <div>
+                            <input type="checkbox">
+                            <span style="font-size: 12px; margin-bottom: 150px;">전체 동의</span>
+                        </div>
+                        <div style="margin-left: 13px;">
+                            <input type="checkbox">
+                            <span style="font-size: 12px;">구매 조건 확인 및 결제진행에 대한 동의</span>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" id="pay-btn" value="결제하기">
+            </div>    
+        </form>
+    </div>
+</body>
+</html>

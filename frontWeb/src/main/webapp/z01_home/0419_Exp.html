@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       h2:hover{background-color: yellow;} /*h2태그에 커서를 가져다 놓았을 때 작동하는 가상 클래스*/
+       h3:active{color: darkred;} /*h3태그를 직접 클릭했을 때 동작하는 가상 클래스*/
+       input[type=text]:focus{background-color:aquamarine; color: blueviolet;} /*input에 한해서 폼 요소에 마우스 클릭으로 포커스를 놓았을 때 동작*/
+       p:first-letter{font-size: 20pt;} /*p 태그 첫 글자에 적용되는 가상 클래스*/
+       div:first-line{color: blue;} /* div 태그 첫 라인에 적용되는 가상 클래스*/
+       h1:nth-child(even){color: orange;} /*h1태그가 붙은 것들 중에서 짝수에 해당하는 것들만 배경 색상을 바꾼다.*/
+       h1:nth-child(odd){color: cadetblue;} /*h1태그가 붙은 것들 중에서 홀수에 해당하는 것들만 배경 색상을 바꾼다.  */
+    </style>
+</head>
+<body>
+    <h2>안녕하세요</h2>
+    <h3>반갑습니다.</h2>
+    <h1>딸기</h1>  
+    <h1>바나나</h1>  
+    <h1>사과</h1>  
+    <h1>키위</h1>  
+    <h1>망고</h1>  
+    <h1>오렌지</h1>  
+    <h1>깔라만시</h1>  
+    <h1>한라봉</h1>  
+    <form>
+        <table>
+            <tr><td>이름:<input type="text"></td></tr>
+            <tr><td>나이:<input type="text"></td></tr>
+            <tr><td>사는 곳:<input type="text"></td></tr>
+        </table>
+    </form>
+    <p>
+        홍길동입니다.<br>
+        라면을 좋아합니다
+    </p>
+    <div>
+        남자입니다.<br>
+        영화를 좋아합니다<br>
+        축구를 좋아합니다
+    </div>
+</body>
+</html>
