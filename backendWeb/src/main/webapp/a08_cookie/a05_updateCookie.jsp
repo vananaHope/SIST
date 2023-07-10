@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    import="java.net.URLDecoder"
-    %>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <fmt:requestEncoding value="utf-8"/>
 <c:set var="path" 
-	value="${pageContext.request.contextPath}"/> 
+	value="${pageContext.request.contextPath}"/>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,31 +21,31 @@
     	// window.onload와 동일한 메서드
     	$(document).ready( function(){
     		
-    		/* $("h2").text("jquery 로딩 성공") */
+    		$("h2").text("jquery 로딩 성공")
     	});
     </script>      
     
     
 </head>
-<%
-// request.getCookies() : 요청객체를 통해서 쿠키값을 서버에 보내서
-// 서버프로그램인 jsp을 통해서 확인
-
-// import="java.net.URLDecoder"
-Cookie[] cookies = request.getCookies();
-for(Cookie c:cookies){
-	// default 값을 제거
-	if(!c.getName().equals("JSESSIONID")){
-		out.print("<h3>"+URLDecoder.decode(c.getName(),"utf-8")+":"+c.getValue()+"</h3>");
-	}
-}
-
-/* a10_inserEncoding.jsp 키가 한글로된 쿠키 설정
-a11_showEncoding.jsp 키와 값을 확인 쿠키*/
-%>
 <body>
+<%--
+# 쿠키의 수정
+1. 쿠키값이 없는 key를 addCookie하면 등록이 되고
+2. 있는 쿠키의 key를 다른 값으로 addCookie하면 수정이 된다.
+
+ --%>
+ <%
+ Cookie upt = new Cookie("price","5000");
+ response.addCookie(upt);
+ 
+ Cookie ins = new Cookie("cnt","3");
+ response.addCookie(ins);
+ 
+ 
+ %>
     <div class="container mt-3">
-    	<h2>쿠키 정보</h2>
+    	<h3>쿠기 수정과 등록</h3>
+    	<h4 onclick="location.href='a02_showCookie.jsp'">쿠키 확인하러 가기</h4>
 	  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	  		<div class="container-fluid">    	
 	    	<form method="post"  class="d-flex align-items-center" >

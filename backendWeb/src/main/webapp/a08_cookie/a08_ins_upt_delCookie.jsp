@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    import="java.net.URLDecoder"
-    %>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <fmt:requestEncoding value="utf-8"/>
 <c:set var="path" 
-	value="${pageContext.request.contextPath}"/> 
+	value="${pageContext.request.contextPath}"/>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,31 +21,37 @@
     	// window.onload와 동일한 메서드
     	$(document).ready( function(){
     		
-    		/* $("h2").text("jquery 로딩 성공") */
+    		$("h2").text("jquery 로딩 성공")
     	});
     </script>      
     
     
 </head>
-<%
-// request.getCookies() : 요청객체를 통해서 쿠키값을 서버에 보내서
-// 서버프로그램인 jsp을 통해서 확인
-
-// import="java.net.URLDecoder"
-Cookie[] cookies = request.getCookies();
-for(Cookie c:cookies){
-	// default 값을 제거
-	if(!c.getName().equals("JSESSIONID")){
-		out.print("<h3>"+URLDecoder.decode(c.getName(),"utf-8")+":"+c.getValue()+"</h3>");
-	}
-}
-
-/* a10_inserEncoding.jsp 키가 한글로된 쿠키 설정
-a11_showEncoding.jsp 키와 값을 확인 쿠키*/
-%>
 <body>
+<%
+// 등록
+Cookie c = new Cookie("pname","바나나");
+Cookie c1 = new Cookie("price","6000");
+Cookie c2 = new Cookie("cnt","10");
+
+response.addCookie(c);
+response.addCookie(c1);
+response.addCookie(c2);
+
+// 수정
+
+response.addCookie(new Cookie("price","8000"));
+
+// 삭제
+
+Cookie dc = new Cookie("pname","");
+dc.setMaxAge(0);
+response.addCookie(dc);
+
+response.sendRedirect("a02_showCookie.jsp");
+%>
     <div class="container mt-3">
-    	<h2>쿠키 정보</h2>
+    	<h2>사원정보 등록</h2>
 	  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	  		<div class="container-fluid">    	
 	    	<form method="post"  class="d-flex align-items-center" >

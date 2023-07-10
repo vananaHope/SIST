@@ -30,7 +30,7 @@
 		ex) response.addCookie(new Cookie("key","value"))
 		
 4. 쿠키의 소멸
-	1) 쿠키는 서버에서 해당 쿠키의 키명으로 유효시간으로 기능 메서드 설정하여
+	1) 쿠키는 서버에서 해당 쿠키의 키명으로 유효시간 기능 메서드를 설정하여
 	다시 클라이언트로 보내지만 해당 시간이 지나면 클라이언트 안에서 사라진다.
 	삭제할 쿠키를 참조변수로 가져와서 setMaxAge(0)으로 설정하여 다시
 	response.addCookie(참조변수); 처리하면 해당 쿠키값은 삭제된다.
@@ -66,17 +66,10 @@ Cookie c1 = new Cookie("c01","himan");
 // 2. 쿠키 클라이언트 만들기
 response.addCookie(c1);
 
-//a02_showCookie.jsp ==> 아래 내용 넣기 
-Cookie[] cookies = request.getCookies();
-for(Cookie c:cookies){
-	if(!c.getName().equals("JSESSIONID")){
-		out.print("<h2>"+c.getName()+"</h2>");
-	}
-}
 %>
 <body>
     <div class="container mt-3">
-    	<h2>사원정보 등록</h2>
+    	<h2></h2>
 	  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	  		<div class="container-fluid">    	
 				<button type="submit" onclick="location.href='a02_showCookie.jsp'" class="btn btn-primary" 

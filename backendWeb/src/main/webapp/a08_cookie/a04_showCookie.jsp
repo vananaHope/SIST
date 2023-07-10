@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    import="java.net.URLDecoder"
-    %>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <fmt:requestEncoding value="utf-8"/>
 <c:set var="path" 
-	value="${pageContext.request.contextPath}"/> 
+	value="${pageContext.request.contextPath}"/>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,27 +25,19 @@
     	});
     </script>      
     
-    
-</head>
 <%
-// request.getCookies() : 요청객체를 통해서 쿠키값을 서버에 보내서
-// 서버프로그램인 jsp을 통해서 확인
-
-// import="java.net.URLDecoder"
 Cookie[] cookies = request.getCookies();
-for(Cookie c:cookies){
-	// default 값을 제거
+for(Cookie c : cookies) {
 	if(!c.getName().equals("JSESSIONID")){
-		out.print("<h3>"+URLDecoder.decode(c.getName(),"utf-8")+":"+c.getValue()+"</h3>");
+		out.print("<h3>"+c.getName()+":"+c.getValue()+"</h3>");
 	}
 }
 
-/* a10_inserEncoding.jsp 키가 한글로된 쿠키 설정
-a11_showEncoding.jsp 키와 값을 확인 쿠키*/
-%>
+%>    
+</head>
 <body>
     <div class="container mt-3">
-    	<h2>쿠키 정보</h2>
+    	<h2></h2>
 	  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	  		<div class="container-fluid">    	
 	    	<form method="post"  class="d-flex align-items-center" >

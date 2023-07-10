@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    import="java.net.URLDecoder"
-    %>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <fmt:requestEncoding value="utf-8"/>
 <c:set var="path" 
-	value="${pageContext.request.contextPath}"/> 
+	value="${pageContext.request.contextPath}"/>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,42 +25,26 @@
     	});
     </script>      
     
-    
-</head>
 <%
-// request.getCookies() : 요청객체를 통해서 쿠키값을 서버에 보내서
-// 서버프로그램인 jsp을 통해서 확인
+Cookie c2 = new Cookie("price","3000");
+response.addCookie(c2);
 
-// import="java.net.URLDecoder"
-Cookie[] cookies = request.getCookies();
-for(Cookie c:cookies){
-	// default 값을 제거
+//a04_showCookie.jsp
+/* Cookie[] cookies = request.getCookies();
+for(Cookie c : cookies) {
 	if(!c.getName().equals("JSESSIONID")){
-		out.print("<h3>"+URLDecoder.decode(c.getName(),"utf-8")+":"+c.getValue()+"</h3>");
+		out.print("<h2>"+c.getName()+":"+c.getValue()+"</h2>");
 	}
-}
-
-/* a10_inserEncoding.jsp 키가 한글로된 쿠키 설정
-a11_showEncoding.jsp 키와 값을 확인 쿠키*/
-%>
+} */
+%>    
+</head>
 <body>
     <div class="container mt-3">
-    	<h2>쿠키 정보</h2>
+    	<h2>쿠키 확인하기</h2>
 	  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	  		<div class="container-fluid">    	
-	    	<form method="post"  class="d-flex align-items-center" >
-	            <input type="text" class="form-control me-2" 
-	      	     id="title" placeholder="직책명 입력" value="${param.title}" name="title"  aria-label="Search">
-	            <input type="text" class="form-control me-2" 
-	      	     id="min_sal1" placeholder="최소급여 시작"  
-	      	     value="${empty param.min_sal1? 0: param.min_sal1}"  name="min_sal1"  aria-label="Search">
-	      	    ~
-	            <input type="text" class="form-control me-2" 
-	      	     id="min_sal2" placeholder="최소급여 마지막" 
-	      	      value="${empty param.min_sal2? 9999999: param.min_sal2}"  name="min_sal2"  aria-label="Search">
-	      	     
-	      	     
-	         	<button type="submit" class="btn btn-primary" style="width:200px;">조회</button>
+	         	<button type="submit" onclick="location.href='a04_showCookie.jsp'" 
+	         	class="btn btn-primary" style="width:200px;">쿠키 확인</button>
 	     	</form>
 	 	    </div>
 	 	</nav>

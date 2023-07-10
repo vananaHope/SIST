@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
+    import="java.net.URLEncoder"
     import="java.net.URLDecoder"
     %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <fmt:requestEncoding value="utf-8"/>
 <c:set var="path" 
-	value="${pageContext.request.contextPath}"/> 
+	value="${pageContext.request.contextPath}"/>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,56 +30,51 @@
     
     
 </head>
-<%
-// request.getCookies() : 요청객체를 통해서 쿠키값을 서버에 보내서
-// 서버프로그램인 jsp을 통해서 확인
-
-// import="java.net.URLDecoder"
-Cookie[] cookies = request.getCookies();
-for(Cookie c:cookies){
-	// default 값을 제거
-	if(!c.getName().equals("JSESSIONID")){
-		out.print("<h3>"+URLDecoder.decode(c.getName(),"utf-8")+":"+c.getValue()+"</h3>");
-	}
-}
-
-/* a10_inserEncoding.jsp 키가 한글로된 쿠키 설정
-a11_showEncoding.jsp 키와 값을 확인 쿠키*/
-%>
 <body>
     <div class="container mt-3">
-    	<h2>쿠키 정보</h2>
+    	<h2>구매 물품명 등록</h2>
 	  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	  		<div class="container-fluid">    	
 	    	<form method="post"  class="d-flex align-items-center" >
 	            <input type="text" class="form-control me-2" 
-	      	     id="title" placeholder="직책명 입력" value="${param.title}" name="title"  aria-label="Search">
-	            <input type="text" class="form-control me-2" 
-	      	     id="min_sal1" placeholder="최소급여 시작"  
-	      	     value="${empty param.min_sal1? 0: param.min_sal1}"  name="min_sal1"  aria-label="Search">
-	      	    ~
-	            <input type="text" class="form-control me-2" 
-	      	     id="min_sal2" placeholder="최소급여 마지막" 
-	      	      value="${empty param.min_sal2? 9999999: param.min_sal2}"  name="min_sal2"  aria-label="Search">
+	      	     id="pname" placeholder="물건명 입력" 
+	      	     name="pname"  aria-label="Search">
 	      	     
-	      	     
-	         	<button type="submit" class="btn btn-primary" style="width:200px;">조회</button>
+	         	<button type="submit" class="btn btn-primary" 
+	         	style="width:200px;">물건 등록</button>
 	     	</form>
 	 	    </div>
 	 	</nav>
+	 	<%
+	 	// 입력받은 물건명
+	 	String pname = request.getParameter("pname");
+	 	if(pname==null) pname="";
+	 	// 물건 리스트
+	 	String plist = "";
+	 	if(!pname.equals("")){
+	 		Cookie[] cks = request.getCookies();
+	 		for(Cookie ck : cks){
+				if(ck.getName().equals("pname")){
+					plist += URLDecoder.decode(ck.getValue(),"utf-8")+" ";
+				}
+			}
+	 		plist += pname;
+			response.addCookie(new Cookie("pname",
+					URLEncoder.encode(plist,"utf-8")));
+	 	}
+	 	
+	 	%>
 		<table class="table table-striped table-hover">
 			<thead class="table-success">
 		      	<tr  class="text-center">
-				    <th>Firstname</th>
-				    <th>Lastname</th>
-				    <th>Email</th>
+				    <th>구매한 물건</th>
+				    <th>구매한 물건 리스트</th>
 		      	</tr>
 		    </thead>
 		    <tbody>
-			   	<tr  class="text-center">
-			        <td>John</td>
-			        <td>Doe</td>
-			        <td>john@example.com</td>
+			   	<tr class="text-center">
+			        <td><%=pname%></td>
+			        <td><%=plist%></td>
 			   	</tr>
 		 	</tbody>
 		</table>      	
